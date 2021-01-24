@@ -1,9 +1,7 @@
+import 'package:dating_app/Home.dart';
 import 'package:flutter/material.dart';
-import 'app_screens/landing_page.dart';
-import 'dart:async';
 
-Future main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() {
   runApp(MyApp());
 }
 
@@ -12,8 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Dating App",
-      home: LandingPage(),
+      home: Home(),
     );
   }
 }
