@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:dating_app/widget/header_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +43,9 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: header(context, title: "Settings", disappearedBackButton: true),
+      appBar: AppBar(
+        title: Text("Choose UserName"),
+      ),
       body: ListView(
         children: <Widget>[
           Container(

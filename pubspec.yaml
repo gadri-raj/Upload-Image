@@ -27,7 +27,6 @@ dependencies:
   image: ^2.1.12
   animator: ^2.0.0
   google_sign_in:
-  firebase_core:
   image_picker:
   timeago: ^2.0.26
   cached_network_image:
@@ -61,7 +60,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/google_signin_button.png
-    - assets/images/send.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
