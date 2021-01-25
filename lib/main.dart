@@ -1,62 +1,19 @@
 import 'package:flutter/material.dart';
+import 'app_screens/landing_page.dart';
+import 'dart:async';
 
-import 'Home.dart';
-
-main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-    );
-  }
-}
-
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.06,
-          ),
-          Center(
-            child: Image.asset("assets/images/avatar.png",
-                width: 300, height: 300),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.06,
-          ),
-          Text(
-            "World Largest Your App",
-            style: TextStyle(fontSize: 22.0),
-          ),
-        ],
-      ),
+      title: "Dating App",
+      home: LandingPage(),
     );
   }
 }
