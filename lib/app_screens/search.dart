@@ -1,4 +1,5 @@
 import 'package:dating_app/app_screens/landing_page.dart';
+import 'package:dating_app/app_screens/upload.dart';
 import 'package:dating_app/model/user.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -16,6 +17,7 @@ class _SearchState extends State<Search>
   final CollectionReference usersReference =
       Firestore.instance.collection("users");
   static GoogleSignIn _googleSignIn = GoogleSignIn();
+  User currentUser;
 
   FirebaseUser _currentUser;
   //---------------------------------------Methods---------------------------------------------------
@@ -77,73 +79,7 @@ class _SearchState extends State<Search>
       child: ListView(
         shrinkWrap: true,
         padding: EdgeInsets.all(10),
-        children: <Widget>[
-          Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    _currentUser.photoUrl,
-                  ),
-                  radius: 60,
-                  backgroundColor: Colors.transparent,
-                ),
-                SizedBox(height: 40),
-                Text(
-                  'NAME',
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54),
-                ),
-                Text(
-                  _currentUser.displayName,
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.deepPurple,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  'EMAIL',
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54),
-                ),
-                Text(
-                  _currentUser.email,
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.deepPurple,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 40),
-                RaisedButton(
-                  onPressed: () async {
-                    await FirebaseAuth.instance.signOut();
-                    _googleSignIn.signOut();
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => LandingPage()));
-                  },
-                  color: Colors.deepPurple,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      'Sign Out',
-                      style: TextStyle(fontSize: 25, color: Colors.white),
-                    ),
-                  ),
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40)),
-                )
-              ],
-            ),
-          )
-        ],
+        children: <Widget>[],
       ),
     );
   }

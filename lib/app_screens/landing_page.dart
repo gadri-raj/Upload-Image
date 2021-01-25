@@ -1,4 +1,4 @@
-import 'package:dating_app/app_screens/search.dart';
+import 'package:dating_app/app_screens/upload.dart';
 import 'package:dating_app/app_screens/sign_in.dart';
 import 'package:dating_app/model/user.dart';
 import 'package:dating_app/widget/progress_widget.dart';
@@ -49,13 +49,13 @@ class LandingPage extends StatelessWidget {
 
         documentSnapshot = await usersReference.document(user.uid).get();
         _currentUser = User.fromDocument(documentSnapshot);
-        Navigator.of(context)
-            .pushReplacement(MaterialPageRoute(builder: (context) => Search()));
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => UploadPage()));
       }
     } else {
       _currentUser = User.fromDocument(documentSnapshot);
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => Search()));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => UploadPage()));
     }
   }
 
